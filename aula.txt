@@ -1,6 +1,262 @@
-Tia Dani é Daora
-Pedro é legal
-Renato é daora
-Aula boa
-bom dia como vai sua tia
-oi seu pai tem boi
+package lapis;
+
+import java.util.Scanner;
+
+import java.util.Random;
+
+public class SocorroDeus {
+
+public static void main(String[] args) {
+
+Scanner teclado = new Scanner(System.in);
+
+int op = 1;
+
+int inicio = 0;
+
+int termino = 0;
+
+int[] vetor = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+while (op != 0) {
+
+System.out.println("MENU DE OPÇÕES: ");
+
+System.out.println("1ª OPÇÃO: COLETA DADOS DO VETOR");
+
+System.out.println("2ª OPÇÃO: GERA VALORES RÂNDOMICOS PARA O VETOR");
+
+System.out.println("3ª OPÇÃO: IMPRIME DADOS DO VETOR");
+
+System.out.println("4ª OPÇÃO: IMPRIME VETOR INVERTIDO");
+
+System.out.println("5ª OPÇÃO: soma dos vetores");
+
+System.out.println("6ª OPÇÃO: soma personalizada");
+
+System.out.println("7ª OPÇÃO: média dos valores ");
+
+System.out.println("8ª OPÇÃO: maior valor dentro do vetor");
+
+System.out.println("9ª OPÇÃO: menor valor dentro do vetor");
+
+System.out.println("Digite a opção:");
+
+op = teclado.nextInt();
+
+if (op == 0) {
+
+break;
+
+} else if (op == 1) {
+
+int[] resultaVetor = coletaVetor(vetor);
+
+} else if (op == 2) {
+
+System.out.println("Qual o valor máximo para os valores do vetor: ");
+
+int max = teclado.nextInt();
+
+vetor = geraVetorRandomico(vetor, max);
+
+System.out.print("Valores randômicos gerados: ");
+
+for (int i = 0; i < vetor.length; i++) {
+
+if (i < vetor.length - 1) {
+
+System.out.print(vetor[i] + ", ");
+
+} else {
+
+System.out.print(vetor[i]);
+
+System.out.println();
+
+}
+
+}
+
+} else if (op == 3) {
+
+imprimeVetor(vetor);
+
+System.out.println(+imprimeVetor(vetor));
+
+} else if (op == 4) {
+
+imprimeVetorInvertido(vetor);
+
+System.out.println(+imprimeVetorInvertido(vetor));
+
+} else if (op == 5) {
+
+somaTodos(vetor);
+
+System.out.println(+somaTodos(vetor));
+
+} else if (op == 6) {
+
+somaPersonalizada(vetor, inicio, termino);
+
+System.out.println(+somaPersonalizada(vetor, inicio, termino));
+
+} else if (op == 7) {
+
+media(vetor);
+
+System.out.println(+media(vetor));
+
+} else if (op == 8) {
+
+maiorValor( vetor);
+
+System.out.println(+ maiorValor( vetor));
+
+} else if (op == 9) {
+
+menorValor(vetor);
+
+System.out.println(+menorValor( vetor));
+
+}
+
+}
+
+}
+
+public static int[] coletaVetor(int[] vetor) {
+
+Scanner teclado = new Scanner(System.in);
+
+for (int i = 0; i < vetor.length; i++) {
+
+System.out.print("Informe o " + i + "º valor do vetor: ");
+
+vetor[i] = teclado.nextInt();
+
+}
+
+return vetor;
+
+}
+
+public static int[] geraVetorRandomico(int[] vetor, int max) {
+
+Random r = new Random();
+
+int[] x = new int[vetor.length];
+
+for (int i = 0; i < vetor.length; i++) {
+
+x[i] = r.nextInt(max + 1);
+
+}
+
+return x;
+
+}
+
+public static int imprimeVetor(int[] vetor) {
+
+int imprime1 = 0;
+
+for (int i = 0; i < vetor.length; i++) {
+
+imprime1 = vetor[i];
+
+}
+
+return imprime1;
+
+}
+
+public static int imprimeVetorInvertido(int[] vetor) {
+
+int imprimeinvertido = 0;
+
+for (int i = 0; i < vetor.length; i++) {
+
+imprimeinvertido = vetor[i];
+
+}
+
+return imprimeinvertido;
+
+}
+
+public static int somaTodos(int[] vetor) {
+
+int soma = 0;
+
+for (int i = 0; i < vetor.length; i++) {
+
+soma = soma + vetor[i];
+
+}
+
+return soma;
+
+}
+
+public static int somaPersonalizada(int[] vetor, int inicio, int termino) {
+
+int soma = 0;
+
+for (int i = inicio; i <= termino; i++) {
+
+soma = soma + vetor[i];
+
+}
+
+return soma;
+
+}
+
+public static double media(int[] vetor) {
+
+double media = somaTodos(vetor) / (vetor.length);
+
+System.out.println("Média" + media);
+
+return media;
+
+}
+
+public static int maiorValor(int[] vetor) {
+
+int maior = vetor[0];
+
+for (int i = 0; i < vetor.length; i++) {
+
+if (maior < vetor[i]) {
+
+maior = vetor[i];
+
+}
+
+}
+
+return maior;
+
+}
+
+public static int menorValor(int[] vetor) {
+
+int menor = vetor[0];
+
+for (int i = 0; i < vetor.length; i++) {
+
+if (menor > vetor[i]) {
+
+menor = vetor[i];
+
+}
+
+}
+
+return menor;
+
+}
+}
